@@ -111,7 +111,7 @@ step_update() {
 
 step_packages() {
   export DEBIAN_FRONTEND=noninteractive
-  apt-get -o Dpkg::Options=--force-confnew -y install python curl unzip
+  apt-get -o Dpkg::Options=--force-confnew -y install python curl unzip cloudflared
 }
 
 step_find_release() {
@@ -177,7 +177,7 @@ echo -e "  ${W}กำลังติดตั้ง อาจใช้เวล�
 
 run "ตั้งค่า mirror"        step_mirror
 run "อัปเดตแพ็คเกจ"        step_update
-run "ติดตั้ง python/curl"   step_packages
+run "ติดตั้ง python/cloudflared" step_packages
 run "ค้นหาเวอร์ชันล่าสุด"   step_find_release
 run "ดาวน์โหลดจาก Releases" step_download
 run "แตกไฟล์ zip"          step_extract
